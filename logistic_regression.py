@@ -18,7 +18,7 @@ train_x, test_x, train_y, test_y = train_test_split(stocks_data, stocks_data, tr
 # 2-class logistic regression
 model = Sequential()
 model.add(Dense(1, activation = 'sigmoid', input_shape = numpy.shape(test_x)))
-model.compile(optimizer = 'rmsprop', loss = 'binary_crossentropy', metrics = ['accuracy'])
+model.compile(optimizer = 'sgd', loss = 'binary_crossentropy', metrics = ['accuracy'])
 history = model.fit(test_x, test_y, epochs = 10, validation_data = (train_x, train_y))
 score = model.evaluate(test_x, test_y, verbose = 0)
 print('Test score:', score[0])
