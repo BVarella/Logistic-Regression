@@ -20,7 +20,6 @@ for x in range (stocks_data.size):
 # Splitting data
 train_x, test_x, train_y, test_y = train_test_split(data_classes, data_classes, train_size = 0.7, test_size = 0.3)
 
-
 # 2-class logistic regression
 model = Sequential()
 model.add(Dense(1, activation = 'sigmoid', input_dim = 1))
