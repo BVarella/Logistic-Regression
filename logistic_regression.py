@@ -18,8 +18,11 @@ for x in range (stocks_data.size):
         else:
             classified_input.append(0)
 
+# Delete first candle
+data_input = numpy.delete(stocks_data, [0])
+
 # Splitting data
-train_x, test_x, train_y, test_y = train_test_split(classified_input, classified_input, train_size = 0.7, test_size = 0.3)
+train_x, test_x, train_y, test_y = train_test_split(data_input, classified_input, train_size = 0.7, test_size = 0.3)
 
 # 2-class logistic regression
 model = Sequential()
