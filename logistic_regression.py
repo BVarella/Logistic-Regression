@@ -12,10 +12,11 @@ stocks_data = numpy.loadtxt(DATASET_PATH, delimiter=',', skiprows = 1, usecols =
 # Classifying dataset
 data_classes = []
 for x in range (stocks_data.size):
-    if x+1 > x:
-        data_classes.append(1)
-    else:
-        data_classes.append(0)
+    if x > 0:
+        if stocks_data[x] > stocks_data[x-1]:
+            data_classes.append(1)
+        else:
+            data_classes.append(0)
 
 # Splitting data
 train_x, test_x, train_y, test_y = train_test_split(data_classes, data_classes, train_size = 0.7, test_size = 0.3)
